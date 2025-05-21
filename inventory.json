@@ -1,0 +1,11 @@
+[
+    {
+        "type": "Electronics",
+        "product_id": "E1001",
+        "name": "Wireless Headphones",
+        "price": 300.0,
+        "quantity_in_stock": 50,
+        "brand": "SoundPro",
+        "warranty_years": 2
+    }
+]
