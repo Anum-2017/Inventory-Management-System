@@ -384,7 +384,7 @@ tabs = st.tabs(["Add Product", "View Inventory", "Sell Product", "Restock Produc
 with tabs[0]:  # Add Product
     st.header("➕ Add New Product")
 
-    ptype = st.selectbox("Select Product Type", ["Electronics", "Grocery", "Clothing"])
+    ptype = st.selectbox("Select Product Type", ["choose an option", "Electronics", "Grocery", "Clothing"])
     pid = st.text_input("Product ID").strip()
     name = st.text_input("Product Name").strip()
     price = st.number_input("Price", min_value=0.01, format="%.2f")
