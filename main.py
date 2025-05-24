@@ -246,11 +246,6 @@ st.markdown("""
         padding: 10px !important;
     }
 
-    /* Remove text cursor from selectbox */
-    .stSelectbox div[data-baseweb="select"] input {
-        display: none !important;
-    }
-
     /* Dropdown arrow */
     .stSelectbox div[data-baseweb="select"] svg {
         color: #262730 !important;
