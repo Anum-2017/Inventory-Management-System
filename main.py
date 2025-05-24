@@ -227,10 +227,21 @@ st.markdown("""
         align-items: center !important;
     }
 
+    .stSelectbox div[data-baseweb="select"] {
+    color: #262730 !important;
+    background-color: #ffffff !important;
+    border-radius: 10px !important;
+    }
+
+    /* Target the text inside the selected dropdown value */
     .stSelectbox div[data-baseweb="select"] > div {
-        color: #262730 !important;
-        background-color: #ffffff !important;
-        border-radius: 10px !important;
+    color: #262730 !important;
+    }
+
+    /* Target the dropdown menu items */
+    .stSelectbox div[data-baseweb="select"] [role="option"] {
+    color: #262730 !important;
+    background-color: #ffffff !important;
     }
 
     .stButton > button {
