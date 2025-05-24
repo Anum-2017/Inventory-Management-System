@@ -199,14 +199,72 @@ st.markdown("""
     /* Input Fields */
     .stTextInput > div > div > input,
     .stNumberInput input,
-    .stDateInput input,
-    .stSelectbox > div > div {
+    .stDateInput input {
         color: #262730 !important;
         background-color: #ffffff !important;
         border: 2px solid #90caf9 !important;
         border-radius: 10px !important;
         padding: 10px !important;
         font-size: 1rem !important;
+    }
+
+     .stSelectbox > div > div {
+        color: #262730 !important;
+        background-color: #ffffff !important;
+        border: 2px solid #90caf9 !important;
+        border-radius: 10px !important;
+        min-height: 48px !important;
+        padding: 0 !important;
+    }
+
+    /* Selectbox button (the clickable area) */
+    .stSelectbox div[data-baseweb="select"] > div {
+        color: #262730 !important;
+        background-color: #ffffff !important;
+        border: none !important;
+        padding: 12px 16px !important;
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+        min-height: 44px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+
+    /* Selected value text */
+    .stSelectbox div[data-baseweb="select"] div[role="button"] span {
+        color: #262730 !important;
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Dropdown arrow */
+    .stSelectbox div[data-baseweb="select"] svg {
+        color: #262730 !important;
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    /* Dropdown menu when opened */
+    .stSelectbox div[data-baseweb="select"] div[role="listbox"] {
+        background-color: #ffffff !important;
+        border: 2px solid #90caf9 !important;
+        border-radius: 10px !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important;
+    }
+
+    /* Dropdown menu items */
+    .stSelectbox div[data-baseweb="select"] [role="option"] {
+        color: #262730 !important;
+        background-color: #ffffff !important;
+        padding: 12px 16px !important;
+        font-size: 1rem !important;
+        line-height: 1.4 !important;
+    }
+
+    /* Dropdown menu items on hover */
+    .stSelectbox div[data-baseweb="select"] [role="option"]:hover {
+        background-color: #e3f2fd !important;
+        color: #0d47a1 !important;
     }
 
     /* Number Input Buttons */
