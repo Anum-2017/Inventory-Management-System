@@ -209,6 +209,24 @@ st.markdown("""
         padding: 10px !important;
     }
 
+    /* Number input spinner buttons */
+    .stNumberInput button {
+        background-color: #2196f3 !important;
+        color: #ffffff !important;
+        border: 1px solid #1976d2 !important;
+        border-radius: 0 8px 8px 0 !important;
+    }
+
+    .stNumberInput button:hover {
+        background-color: #1565c0 !important;
+    }
+
+    /* Fix number input container */
+    .stNumberInput > div > div {
+        border-radius: 10px !important;
+        overflow: hidden !important;
+    }
+
     /* Select box options */
     .stSelectbox div[data-baseweb="select"] > div {
         color: #262730 !important;
@@ -324,6 +342,34 @@ st.markdown("""
         .stButton > button span {
             color: #ffffff !important;
             font-weight: bold !important;
+        }
+
+        /* Mobile number input fixes */
+        .stNumberInput button {
+            background-color: #2196f3 !important;
+            color: #ffffff !important;
+            border: 2px solid #1976d2 !important;
+            min-width: 40px !important;
+            min-height: 40px !important;
+        }
+
+        .stNumberInput button:hover {
+            background-color: #1565c0 !important;
+        }
+
+        .stNumberInput > div > div {
+            border-radius: 10px !important;
+            overflow: hidden !important;
+            border: 2px solid #90caf9 !important;
+        }
+
+        /* Input field mobile adjustments */
+        .stTextInput > div > div > input,
+        .stNumberInput input,
+        .stDateInput input {
+            font-size: 16px !important;
+            padding: 12px !important;
+            min-height: 48px !important;
         }
         
         .footer {
