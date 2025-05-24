@@ -202,7 +202,7 @@ st.markdown("""
     .stNumberInput input,
     .stDateInput input,
     .stSelectbox > div > div {
-        
+        color: #262730 !important;
         background-color: #ffffff !important;
         border: 2px solid #90caf9 !important;
         border-radius: 10px !important;
