@@ -227,29 +227,11 @@ st.markdown("""
         align-items: center !important;
     }
 
-    # .stSelectbox div[data-baseweb="select"] > div {
-    #     color: #262730 !important;
-    #     background-color: #ffffff !important;
-    #     border-radius: 10px !important;
-    # }
-
-    /* Selected item in the selectbox (the displayed selected text) */
-.stSelectbox > div > div > div[role="button"] {
-    color: #262730 !important; /* dark text */
-    background-color: #ffffff !important; /* white background */
-}
-
-/* Dropdown options text */
-.stSelectbox div[role="listbox"] div[role="option"] {
-    color: #262730 !important; /* dark text for options */
-    background-color: #ffffff !important; /* white background for options */
-}
-
-/* Option hover color */
-.stSelectbox div[role="listbox"] div[role="option"]:hover {
-    background-color: #90caf9 !important; /* light blue hover */
-    color: #0d47a1 !important; /* dark blue text on hover */
-}
+    .stSelectbox div[data-baseweb="select"] > div {
+        color: #262730 !important;
+        background-color: #ffffff !important;
+        border-radius: 10px !important;
+    }
 
     .stButton > button {
         background-color: #2196f3 !important;
