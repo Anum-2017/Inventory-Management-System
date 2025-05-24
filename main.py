@@ -288,58 +288,62 @@ tabs = st.tabs(["Add Product", "View Inventory", "Sell Product", "Restock Produc
 
 with tabs[0]:  # Add Product
     st.header("➕ Add New Product")
+
     ptype = st.selectbox("Select Product Type", ["Electronics", "Grocery", "Clothing"])
     pid = st.text_input("Product ID").strip()
     name = st.text_input("Product Name").strip()
-    price = st.number_input("Price", min_value=0.0, format="%.2f")
-    quantity = st.number_input("Quantity", min_value=0, step=1)
+    price = st.number_input("Price", min_value=0.01, format="%.2f")
+    quantity = st.number_input("Quantity", min_value=1, step=1, format="%d")  # integer quantity, min 1
 
+    # Specific inputs per product type
     if ptype == "Electronics":
         brand = st.text_input("Brand").strip()
         warranty = st.number_input("Warranty (Years)", min_value=0, step=1)
-        if st.button("Add Electronics"):
-            if not all([pid, name, brand]):
-                st.error("Please fill in all fields.")
-            elif price <= 0 or quantity <= 0:
-                st.error("Price and Quantity must be greater than 0.")
-            else:
-                try:
-                    e = Electronics(pid, name, price, quantity, brand, warranty)
-                    inv.add_product(e)
-                    st.success(f"Electronics product '{name}' added successfully!")
-                except Exception as e:
-                    st.error(str(e))
 
     elif ptype == "Grocery":
-        expiry_date = st.date_input("Expiry Date").strftime("%Y-%m-%d")
-        if st.button("Add Grocery"):
-            if not all([pid, name, expiry_date]):
-                st.error("Please fill in all fields.")
-            elif price <= 0 or quantity <= 0:
-                st.error("Price and Quantity must be greater than 0.")
-            else:
-                try:
-                    g = Grocery(pid, name, price, quantity, expiry_date)
-                    inv.add_product(g)
-                    st.success(f"Grocery product '{name}' added successfully!")
-                except Exception as e:
-                    st.error(str(e))
+        expiry_date = st.date_input("Expiry Date")
 
     elif ptype == "Clothing":
         size = st.text_input("Size (e.g. M, L, XL)").strip()
         material = st.text_input("Material").strip()
-        if st.button("Add Clothing"):
-            if not all([pid, name, size, material]):
-                st.error("Please fill in all fields.")
-            elif price <= 0 or quantity <= 0:
-                st.error("Price and Quantity must be greater than 0.")
-            else:
-                try:
-                    c = Clothing(pid, name, price, quantity, size, material)
-                    inv.add_product(c)
-                    st.success(f"Clothing product '{name}' added successfully!")
-                except Exception as e:
-                    st.error(str(e))
+
+    if st.button(f"Add {ptype}"):
+        # Basic validation
+        if not pid:
+            st.error("Product ID cannot be empty.")
+        elif not name:
+            st.error("Product Name cannot be empty.")
+        elif price <= 0:
+            st.error("Price must be greater than 0.")
+        elif quantity <= 0:
+            st.error("Quantity must be greater than 0.")
+        else:
+            try:
+                if ptype == "Electronics":
+                    if not brand:
+                        st.error("Brand cannot be empty.")
+                    else:
+                        product = Electronics(pid, name, price, quantity, brand, warranty)
+                        inv.add_product(product)
+                        st.success(f"Electronics product '{name}' added successfully!")
+
+                elif ptype == "Grocery":
+                    # Format expiry_date to string
+                    expiry_str = expiry_date.strftime("%Y-%m-%d")
+                    product = Grocery(pid, name, price, quantity, expiry_str)
+                    inv.add_product(product)
+                    st.success(f"Grocery product '{name}' added successfully!")
+
+                elif ptype == "Clothing":
+                    if not size or not material:
+                        st.error("Size and Material cannot be empty.")
+                    else:
+                        product = Clothing(pid, name, price, quantity, size, material)
+                        inv.add_product(product)
+                        st.success(f"Clothing product '{name}' added successfully!")
+
+            except Exception as e:
+                st.error(f"Error adding product: {e}")
 
 with tabs[1]:  # View Inventory
     st.header("📋 Current Inventory")
