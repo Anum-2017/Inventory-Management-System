@@ -171,6 +171,7 @@ st.markdown("""
     h1, h2, h3, .stSubheader, .stHeader {
         color: #0d47a1 !important;
         font-weight: bold !important;
+        margin: 0; /* prevent extra margin if needed */
     }
 
     /* Main title */
@@ -185,14 +186,17 @@ st.markdown("""
     .stTabs [data-baseweb="tab-list"] button {
         color: #262730 !important;
         font-weight: 600 !important;
+        background: transparent !important;
+        border: none !important;
     }
 
     .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
         color: #0d47a1 !important;
+        border-bottom: 2px solid #0d47a1 !important; /* Highlight selected tab */
     }
 
     /* Form labels */
-    .stSelectbox label, .stTextInput label, .stNumberInput label, .stDateInput label {
+    label {
         color: #262730 !important;
         font-weight: 600 !important;
     }
@@ -207,24 +211,39 @@ st.markdown("""
         border: 2px solid #90caf9 !important;
         border-radius: 10px !important;
         padding: 10px !important;
+        font-size: 1rem !important;
     }
 
     /* Number input spinner buttons */
     .stNumberInput button {
         background-color: #2196f3 !important;
         color: #ffffff !important;
+        border: none !important;
+        min-width: 40px !important;
+        min-height: 40px !important;
+        padding: 0 !important;
+        cursor: pointer !important;
+        transition: background-color 0.3s ease !important;
+    }
+
+    .stNumberInput button:hover {
+        background-color: #1565c0 !important;
     }
 
     /* Fix number input container */
     .stNumberInput > div > div {
         border-radius: 10px !important;
         overflow: hidden !important;
+        border: 2px solid #90caf9 !important;
+        display: flex !important;
+        align-items: center !important;
     }
 
     /* Select box options */
     .stSelectbox div[data-baseweb="select"] > div {
         color: #262730 !important;
         background-color: #ffffff !important;
+        border-radius: 10px !important;
     }
 
     /* Buttons - Enhanced for Mobile */
@@ -246,7 +265,6 @@ st.markdown("""
 
     .stButton > button:hover {
         background-color: #1565c0 !important;
-        color: #ffffff !important;
         border-color: #0d47a1 !important;
         transform: scale(1.03) !important;
         box-shadow: 0 4px 12px rgba(13, 71, 161, 0.4) !important;
@@ -254,7 +272,6 @@ st.markdown("""
 
     .stButton > button:active {
         background-color: #0d47a1 !important;
-        color: #ffffff !important;
         transform: scale(0.98) !important;
     }
 
@@ -263,7 +280,7 @@ st.markdown("""
         outline-offset: 2px !important;
     }
 
-    /* Success/Error/Info messages */
+    /* Success/Error/Info/Warning messages */
     .stSuccess, .stError, .stInfo, .stWarning {
         color: #262730 !important;
     }
@@ -286,78 +303,41 @@ st.markdown("""
     /* Mobile-specific adjustments */
     @media only screen and (max-width: 768px) {
         .stApp {
-            color: #262730 !important;
             background: linear-gradient(to bottom, #e3f2fd, #f0f4f8) !important;
         }
-        
+
         h1, h2, h3 {
-            color: #0d47a1 !important;
             font-size: 1.5rem !important;
         }
-        
-        .stSelectbox, .stTextInput, .stNumberInput, .stDateInput {
-            color: #262730 !important;
-        }
-        
-        .stSelectbox label, .stTextInput label, .stNumberInput label, .stDateInput label {
-            color: #262730 !important;
+
+        label {
             font-size: 1rem !important;
-            font-weight: 600 !important;
         }
-        
-        /* Enhanced Mobile Buttons */
+
+        /* Buttons full width on mobile */
         .stButton > button {
             width: 100% !important;
             margin: 8px 0 !important;
-            background-color: #2196f3 !important;
-            color: #ffffff !important;
-            border: 3px solid #1976d2 !important;
             border-radius: 15px !important;
             padding: 15px 20px !important;
-            font-weight: bold !important;
             font-size: 18px !important;
             min-height: 55px !important;
             box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4) !important;
-            text-transform: uppercase !important;
             letter-spacing: 1px !important;
-            -webkit-appearance: none !important;
-            -moz-appearance: none !important;
-            appearance: none !important;
         }
-        
-        .stButton > button:hover, .stButton > button:active, .stButton > button:focus {
-            background-color: #1565c0 !important;
-            color: #ffffff !important;
-            border-color: #0d47a1 !important;
+
+        .stButton > button:hover,
+        .stButton > button:active,
+        .stButton > button:focus {
             box-shadow: 0 6px 16px rgba(13, 71, 161, 0.5) !important;
         }
-        
-        /* Ensure button text is always visible */
-        .stButton > button span {
-            color: #ffffff !important;
-            font-weight: bold !important;
-        }
 
-        /* Mobile number input fixes */
+        /* Number input spinner on mobile */
         .stNumberInput button {
-            background-color: #2196f3 !important;
-            color: #ffffff !important;
             border: 2px solid #1976d2 !important;
-            min-width: 40px !important;
-            min-height: 40px !important;
         }
 
-        .stNumberInput button:hover {
-            background-color: #1565c0 !important;
-        }
-
-        .stNumberInput > div > div {
-            border-radius: 10px !important;
-            overflow: hidden !important;
-            border: 2px solid #90caf9 !important;
-        }
-
-        /* Input field mobile adjustments */
+        /* Input fields font size and padding on mobile */
         .stTextInput > div > div > input,
         .stNumberInput input,
         .stDateInput input {
@@ -365,7 +345,8 @@ st.markdown("""
             padding: 12px !important;
             min-height: 48px !important;
         }
-        
+
+        /* Footer mobile */
         .footer {
             position: relative !important;
             margin-top: 2rem !important;
@@ -375,6 +356,7 @@ st.markdown("""
     /* Hide default Streamlit footer */
     footer {
         visibility: hidden !important;
+        height: 0 !important;
     }
 
     /* Ensure readability on all backgrounds */
