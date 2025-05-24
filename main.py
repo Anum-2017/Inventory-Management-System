@@ -215,21 +215,40 @@ st.markdown("""
         background-color: #ffffff !important;
     }
 
-    /* Buttons */
+    /* Buttons - Enhanced for Mobile */
     .stButton > button {
         background-color: #2196f3 !important;
-        color: white !important;
-        border: none !important;
+        color: #ffffff !important;
+        border: 2px solid #1976d2 !important;
         border-radius: 12px !important;
-        padding: 10px 20px !important;
+        padding: 12px 24px !important;
         font-weight: bold !important;
+        font-size: 16px !important;
         transition: all 0.3s ease-in-out !important;
         cursor: pointer !important;
+        min-height: 48px !important;
+        box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3) !important;
+        text-transform: uppercase !important;
+        letter-spacing: 0.5px !important;
     }
 
     .stButton > button:hover {
         background-color: #1565c0 !important;
+        color: #ffffff !important;
+        border-color: #0d47a1 !important;
         transform: scale(1.03) !important;
+        box-shadow: 0 4px 12px rgba(13, 71, 161, 0.4) !important;
+    }
+
+    .stButton > button:active {
+        background-color: #0d47a1 !important;
+        color: #ffffff !important;
+        transform: scale(0.98) !important;
+    }
+
+    .stButton > button:focus {
+        outline: 3px solid #90caf9 !important;
+        outline-offset: 2px !important;
     }
 
     /* Success/Error/Info messages */
@@ -274,9 +293,37 @@ st.markdown("""
             font-weight: 600 !important;
         }
         
+        /* Enhanced Mobile Buttons */
         .stButton > button {
             width: 100% !important;
-            margin: 5px 0 !important;
+            margin: 8px 0 !important;
+            background-color: #2196f3 !important;
+            color: #ffffff !important;
+            border: 3px solid #1976d2 !important;
+            border-radius: 15px !important;
+            padding: 15px 20px !important;
+            font-weight: bold !important;
+            font-size: 18px !important;
+            min-height: 55px !important;
+            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4) !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            -webkit-appearance: none !important;
+            -moz-appearance: none !important;
+            appearance: none !important;
+        }
+        
+        .stButton > button:hover, .stButton > button:active, .stButton > button:focus {
+            background-color: #1565c0 !important;
+            color: #ffffff !important;
+            border-color: #0d47a1 !important;
+            box-shadow: 0 6px 16px rgba(13, 71, 161, 0.5) !important;
+        }
+        
+        /* Ensure button text is always visible */
+        .stButton > button span {
+            color: #ffffff !important;
+            font-weight: bold !important;
         }
         
         .footer {
