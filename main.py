@@ -155,6 +155,7 @@ st.set_page_config(page_title="🌟 Inventory System", layout="centered")
 
 st.markdown("""
 <style>
+    /* General App Styling */
     .stApp, .stApp * {
         color: #262730 !important;
     }
@@ -164,6 +165,7 @@ st.markdown("""
         padding: 1rem !important;
     }
 
+    /* Headings */
     h1, h2, h3, .stSubheader, .stHeader {
         color: #0d47a1 !important;
         font-weight: bold !important;
@@ -176,23 +178,25 @@ st.markdown("""
         margin-bottom: 2rem !important;
     }
 
+    /* Tabs Styling */
     .stTabs [data-baseweb="tab-list"] button {
         color: #262730 !important;
         font-weight: 600 !important;
         background: transparent !important;
         border: none !important;
     }
-
     .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
         color: #0d47a1 !important;
         border-bottom: 2px solid #0d47a1 !important;
     }
 
+    /* Labels */
     label {
         color: #262730 !important;
         font-weight: 600 !important;
     }
 
+    /* Input Fields */
     .stTextInput > div > div > input,
     .stNumberInput input,
     .stDateInput input,
@@ -205,20 +209,19 @@ st.markdown("""
         font-size: 1rem !important;
     }
 
+    /* Number Input Buttons */
     .stNumberInput button {
         background-color: #2196f3 !important;
-        color: ##000000 !important;
+        color: #000000 !important;
         border: none !important;
         min-width: 40px !important;
         min-height: 40px !important;
         cursor: pointer !important;
         transition: background-color 0.3s ease !important;
     }
-
     .stNumberInput button:hover {
         background-color: #1565c0 !important;
     }
-
     .stNumberInput > div > div {
         border-radius: 10px !important;
         overflow: hidden !important;
@@ -227,23 +230,28 @@ st.markdown("""
         align-items: center !important;
     }
 
+    /* Selectbox (Dropdown) Styling */
     .stSelectbox div[data-baseweb="select"] {
-        color: #262730 !important;
         background-color: #ffffff !important;
         border-radius: 10px !important;
-    }
-
-    /* Target the text inside the selected dropdown value */
-    .stSelectbox div[data-baseweb="select"] > div {
         color: #262730 !important;
     }
 
-    /* Target the dropdown menu items */
+    /* Selected value styling */
+    .stSelectbox div[data-baseweb="select"] div[role="button"] {
+        color: #262730 !important;
+        background-color: #ffffff !important;
+        font-size: 1rem !important;
+        border: none !important;
+    }
+
+    /* Dropdown menu items */
     .stSelectbox div[data-baseweb="select"] [role="option"] {
         color: #262730 !important;
         background-color: #ffffff !important;
     }
 
+    /* Button Styling */
     .stButton > button {
         background-color: #2196f3 !important;
         color: white !important;
@@ -257,26 +265,33 @@ st.markdown("""
         width: 100% !important; /* Full-width buttons for mobile */
         margin-top: 10px !important;
     }
-
     .stButton > button:hover {
         background-color: #1976d2 !important;
     }
 
+    /* Dark mode override */
+    @media (prefers-color-scheme: dark) {
+        .stApp, .stSelectbox, .stSelectbox * {
+            background-color: #ffffff !important;
+            color: #262730 !important;
+        }
+    }
+
+    /* Mobile Responsive Styling */
     @media only screen and (max-width: 600px) {
         .stApp {
             padding: 0.5rem !important;
         }
-
         .stTextInput, .stNumberInput, .stDateInput, .stSelectbox, .stButton {
             width: 100% !important;
         }
-
         .stTabs [data-baseweb="tab-list"] {
             flex-wrap: wrap !important;
         }
     }
 </style>
 """, unsafe_allow_html=True)
+
 
 st.markdown("""
 <h1 class="main-title">⚙️ Inventory Management System</h1>
