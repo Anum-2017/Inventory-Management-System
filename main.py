@@ -153,67 +153,152 @@ class Inventory:
 # ----------------------- Streamlit UI -----------------------
 st.set_page_config(page_title="🌟 Inventory System", layout="centered")
 
-# Custom CSS for Stylish UI
+# Enhanced CSS for Mobile Compatibility
 st.markdown("""
 <style>
-    /* Background */
-    .stApp {
-        background: linear-gradient(to right, #e3f2fd, #f0f4f8);
-        color: #333;
-        font-family: 'Segoe UI', sans-serif;
+    /* Force dark text on all devices */
+    .stApp, .stApp * {
+        color: #262730 !important;
     }
 
-    /* Titles and headers */
-    h1, h2, h3, .stSubheader {
-        color: #0d47a1;
+    /* Background */
+    .stApp {
+        background: linear-gradient(to right, #e3f2fd, #f0f4f8) !important;
+        font-family: 'Segoe UI', sans-serif !important;
+    }
+
+    /* Headers - Force dark color */
+    h1, h2, h3, .stSubheader, .stHeader {
+        color: #0d47a1 !important;
+        font-weight: bold !important;
+    }
+
+    /* Main title */
+    .main-title {
+        color: #0d47a1 !important;
+        text-align: center !important;
+        font-weight: bold !important;
+        margin-bottom: 2rem !important;
+    }
+
+    /* Tab labels */
+    .stTabs [data-baseweb="tab-list"] button {
+        color: #262730 !important;
+        font-weight: 600 !important;
+    }
+
+    .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
+        color: #0d47a1 !important;
+    }
+
+    /* Form labels */
+    .stSelectbox label, .stTextInput label, .stNumberInput label, .stDateInput label {
+        color: #262730 !important;
+        font-weight: 600 !important;
+    }
+
+    /* Input fields */
+    .stTextInput > div > div > input,
+    .stNumberInput input,
+    .stDateInput input,
+    .stSelectbox > div > div {
+        color: #262730 !important;
+        background-color: #ffffff !important;
+        border: 2px solid #90caf9 !important;
+        border-radius: 10px !important;
+        padding: 10px !important;
+    }
+
+    /* Select box options */
+    .stSelectbox div[data-baseweb="select"] > div {
+        color: #262730 !important;
+        background-color: #ffffff !important;
     }
 
     /* Buttons */
     .stButton > button {
-        background-color: #2196f3;
-        color: white;
-        border: none;
-        border-radius: 12px;
-        padding: 10px 20px;
-        font-weight: bold;
-        transition: all 0.3s ease-in-out;
-        cursor: pointer;
+        background-color: #2196f3 !important;
+        color: white !important;
+        border: none !important;
+        border-radius: 12px !important;
+        padding: 10px 20px !important;
+        font-weight: bold !important;
+        transition: all 0.3s ease-in-out !important;
+        cursor: pointer !important;
     }
 
     .stButton > button:hover {
-        background-color: #1565c0;
-        transform: scale(1.03);
+        background-color: #1565c0 !important;
+        transform: scale(1.03) !important;
     }
 
-    /* Input boxes */
-    .stTextInput > div > div > input,
-    .stNumberInput input,
-    .stDateInput input {
-        border-radius: 10px;
-        padding: 10px;
-        border: 1px solid #90caf9;
+    /* Success/Error/Info messages */
+    .stSuccess, .stError, .stInfo, .stWarning {
+        color: #262730 !important;
     }
 
     /* Footer */
-    footer {
-        visibility: hidden;
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #1976d2 !important;
+        color: white !important;
+        text-align: center !important;
+        padding: 10px !important;
+        font-weight: bold !important;
+        border-top: 2px solid #0d47a1 !important;
+        z-index: 1000;
     }
 
-    .footer {
-        bottom: 0;
-        width: 100%;
-        background-color: #1976d2;
-        color: white;
-        text-align: center;
-        padding: 10px;
-        font-weight: bold;
-        border-top: 2px solid #0d47a1;
+    /* Mobile-specific adjustments */
+    @media only screen and (max-width: 768px) {
+        .stApp {
+            color: #262730 !important;
+            background: linear-gradient(to bottom, #e3f2fd, #f0f4f8) !important;
+        }
+        
+        h1, h2, h3 {
+            color: #0d47a1 !important;
+            font-size: 1.5rem !important;
+        }
+        
+        .stSelectbox, .stTextInput, .stNumberInput, .stDateInput {
+            color: #262730 !important;
+        }
+        
+        .stSelectbox label, .stTextInput label, .stNumberInput label, .stDateInput label {
+            color: #262730 !important;
+            font-size: 1rem !important;
+            font-weight: 600 !important;
+        }
+        
+        .stButton > button {
+            width: 100% !important;
+            margin: 5px 0 !important;
+        }
+        
+        .footer {
+            position: relative !important;
+            margin-top: 2rem !important;
+        }
+    }
+
+    /* Hide default Streamlit footer */
+    footer {
+        visibility: hidden !important;
+    }
+
+    /* Ensure readability on all backgrounds */
+    .stMarkdown, .stText, p, div {
+        color: #262730 !important;
     }
 </style>
 """, unsafe_allow_html=True)
 
 st.markdown("""
-<h1 style='text-align: center; color: #0d47a1;'>⚙️ Inventory Management System</h1>
+<h1 class="main-title">⚙️ Inventory Management System</h1>
 """, unsafe_allow_html=True)
 
 # Session State Setup
@@ -361,4 +446,3 @@ st.markdown("""
     Inventory Management System &nbsp;|&nbsp; Made with ❤️ by Anum Kamal
 </div>
 """, unsafe_allow_html=True)
-
