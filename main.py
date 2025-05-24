@@ -243,12 +243,28 @@ st.markdown("""
         background-color: #ffffff !important;
         font-size: 1rem !important;
         border: none !important;
+        padding: 10px !important;
+    }
+
+    /* Remove text cursor from selectbox */
+    .stSelectbox div[data-baseweb="select"] input {
+        display: none !important;
+    }
+
+    /* Dropdown arrow */
+    .stSelectbox div[data-baseweb="select"] svg {
+        color: #262730 !important;
     }
 
     /* Dropdown menu items */
-    .stSelectbox div[data-baseweb="select"] [role="option"] {
+    .stSelectbox div[role="listbox"] div[role="option"] {
         color: #262730 !important;
         background-color: #ffffff !important;
+        padding: 10px !important;
+    }
+
+    .stSelectbox div[role="listbox"] div[role="option"]:hover {
+        background-color: #e3f2fd !important;
     }
 
     /* Button Styling */
