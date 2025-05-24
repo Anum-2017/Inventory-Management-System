@@ -153,28 +153,22 @@ class Inventory:
 # ----------------------- Streamlit UI -----------------------
 st.set_page_config(page_title="🌟 Inventory System", layout="centered")
 
-# Enhanced CSS for Mobile Compatibility
 st.markdown("""
 <style>
-    /* Force dark text on all devices */
     .stApp, .stApp * {
         color: #262730 !important;
     }
-
-    /* Background */
     .stApp {
         background: linear-gradient(to right, #e3f2fd, #f0f4f8) !important;
         font-family: 'Segoe UI', sans-serif !important;
+        padding: 1rem !important;
     }
 
-    /* Headers - Force dark color */
     h1, h2, h3, .stSubheader, .stHeader {
         color: #0d47a1 !important;
         font-weight: bold !important;
-        margin: 0; /* prevent extra margin if needed */
     }
 
-    /* Main title */
     .main-title {
         color: #0d47a1 !important;
         text-align: center !important;
@@ -182,7 +176,6 @@ st.markdown("""
         margin-bottom: 2rem !important;
     }
 
-    /* Tab labels */
     .stTabs [data-baseweb="tab-list"] button {
         color: #262730 !important;
         font-weight: 600 !important;
@@ -192,16 +185,14 @@ st.markdown("""
 
     .stTabs [data-baseweb="tab-list"] button[aria-selected="true"] {
         color: #0d47a1 !important;
-        border-bottom: 2px solid #0d47a1 !important; /* Highlight selected tab */
+        border-bottom: 2px solid #0d47a1 !important;
     }
 
-    /* Form labels */
     label {
         color: #262730 !important;
         font-weight: 600 !important;
     }
 
-    /* Input fields */
     .stTextInput > div > div > input,
     .stNumberInput input,
     .stDateInput input,
@@ -214,14 +205,12 @@ st.markdown("""
         font-size: 1rem !important;
     }
 
-    /* Number input spinner buttons */
     .stNumberInput button {
         background-color: #2196f3 !important;
         color: #ffffff !important;
         border: none !important;
         min-width: 40px !important;
         min-height: 40px !important;
-        padding: 0 !important;
         cursor: pointer !important;
         transition: background-color 0.3s ease !important;
     }
@@ -230,7 +219,6 @@ st.markdown("""
         background-color: #1565c0 !important;
     }
 
-    /* Fix number input container */
     .stNumberInput > div > div {
         border-radius: 10px !important;
         overflow: hidden !important;
@@ -239,129 +227,42 @@ st.markdown("""
         align-items: center !important;
     }
 
-    /* Select box options */
     .stSelectbox div[data-baseweb="select"] > div {
         color: #262730 !important;
         background-color: #ffffff !important;
         border-radius: 10px !important;
     }
 
-    /* Buttons - Enhanced for Mobile */
     .stButton > button {
         background-color: #2196f3 !important;
-        color: #ffffff !important;
-        border: 2px solid #1976d2 !important;
-        border-radius: 12px !important;
-        padding: 12px 24px !important;
+        color: white !important;
         font-weight: bold !important;
-        font-size: 16px !important;
-        transition: all 0.3s ease-in-out !important;
+        border: none !important;
+        padding: 0.75rem 1.5rem !important;
+        border-radius: 10px !important;
+        font-size: 1rem !important;
         cursor: pointer !important;
-        min-height: 48px !important;
-        box-shadow: 0 2px 8px rgba(33, 150, 243, 0.3) !important;
-        text-transform: uppercase !important;
-        letter-spacing: 0.5px !important;
+        transition: background-color 0.3s ease !important;
+        width: 100% !important; /* Full-width buttons for mobile */
+        margin-top: 10px !important;
     }
 
     .stButton > button:hover {
-        background-color: #1565c0 !important;
-        border-color: #0d47a1 !important;
-        transform: scale(1.03) !important;
-        box-shadow: 0 4px 12px rgba(13, 71, 161, 0.4) !important;
-    }
-
-    .stButton > button:active {
-        background-color: #0d47a1 !important;
-        transform: scale(0.98) !important;
-    }
-
-    .stButton > button:focus {
-        outline: 3px solid #90caf9 !important;
-        outline-offset: 2px !important;
-    }
-
-    /* Success/Error/Info/Warning messages */
-    .stSuccess, .stError, .stInfo, .stWarning {
-        color: #262730 !important;
-    }
-
-    /* Footer */
-    .footer {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        right: 0;
         background-color: #1976d2 !important;
-        color: white !important;
-        text-align: center !important;
-        padding: 10px !important;
-        font-weight: bold !important;
-        border-top: 2px solid #0d47a1 !important;
-        z-index: 1000;
     }
 
-    /* Mobile-specific adjustments */
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 600px) {
         .stApp {
-            background: linear-gradient(to bottom, #e3f2fd, #f0f4f8) !important;
+            padding: 0.5rem !important;
         }
 
-        h1, h2, h3 {
-            font-size: 1.5rem !important;
-        }
-
-        label {
-            font-size: 1rem !important;
-        }
-
-        /* Buttons full width on mobile */
-        .stButton > button {
+        .stTextInput, .stNumberInput, .stDateInput, .stSelectbox, .stButton {
             width: 100% !important;
-            margin: 8px 0 !important;
-            border-radius: 15px !important;
-            padding: 15px 20px !important;
-            font-size: 18px !important;
-            min-height: 55px !important;
-            box-shadow: 0 4px 12px rgba(33, 150, 243, 0.4) !important;
-            letter-spacing: 1px !important;
         }
 
-        .stButton > button:hover,
-        .stButton > button:active,
-        .stButton > button:focus {
-            box-shadow: 0 6px 16px rgba(13, 71, 161, 0.5) !important;
+        .stTabs [data-baseweb="tab-list"] {
+            flex-wrap: wrap !important;
         }
-
-        /* Number input spinner on mobile */
-        .stNumberInput button {
-            border: 2px solid #1976d2 !important;
-        }
-
-        /* Input fields font size and padding on mobile */
-        .stTextInput > div > div > input,
-        .stNumberInput input,
-        .stDateInput input {
-            font-size: 16px !important;
-            padding: 12px !important;
-            min-height: 48px !important;
-        }
-
-        /* Footer mobile */
-        .footer {
-            position: relative !important;
-            margin-top: 2rem !important;
-        }
-    }
-
-    /* Hide default Streamlit footer */
-    footer {
-        visibility: hidden !important;
-        height: 0 !important;
-    }
-
-    /* Ensure readability on all backgrounds */
-    .stMarkdown, .stText, p, div {
-        color: #262730 !important;
     }
 </style>
 """, unsafe_allow_html=True)
