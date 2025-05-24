@@ -213,12 +213,6 @@ st.markdown("""
     .stNumberInput button {
         background-color: #2196f3 !important;
         color: #ffffff !important;
-        border: 1px solid #1976d2 !important;
-        border-radius: 0 8px 8px 0 !important;
-    }
-
-    .stNumberInput button:hover {
-        background-color: #1565c0 !important;
     }
 
     /* Fix number input container */
