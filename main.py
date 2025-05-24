@@ -207,7 +207,7 @@ st.markdown("""
 
     .stNumberInput button {
         background-color: #2196f3 !important;
-        color: #ffffff !important;
+        color: ##000000 !important;
         border: none !important;
         min-width: 40px !important;
         min-height: 40px !important;
